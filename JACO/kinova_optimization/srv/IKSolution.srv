@@ -1,7 +1,0 @@
-kinova_optimization/EEPoseGoals ee_pose_goals
-kinova_optimization/JointAngles init
-float64 ee_pos_precision
-float64 ee_rot_precision
----
-kinova_optimization/JointAngles joint_angles
-bool success
