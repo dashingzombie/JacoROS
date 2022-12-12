@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="rate" default="100"/>
+
+    <include file="$(find kinova_bringup)/launch/kinova_robot.launch">
+        <arg name="kinova_robotType" default="j2s7s300"/>
+    </include>
+
+    <node pkg="relaxed_ik_ros1" type="relaxed_ik_rust.py"  name="relaxed_ik" output="screen">
+        <param name="rate" type="int" value="$(arg rate)" />
+        <remap from="/ee_pose_goals" to="/relaxed_ik/ee_pose_goals" />
+        <remap from="/joint_angle_solutions" to="/relaxed_ik/joint_angle_solutions" />
+    </node>
+
+
+
+    <!-- <node pkg="ros_server" type="task_control.py" name="task_control" ns="$(arg robot_ns)" output="screen" /> 
+
+    <node pkg="interactive_marker_proxy" type="proxy" name="interactive_marker_proxy" ns="$(arg robot_ns)" args="topic_ns:=simple_marker  target_frame:=/base_link" output="screen" />
+
+    <node pkg="tf2_web_republisher" type="tf2_web_republisher" name="tf2_web_republisher" ns="$(arg robot_ns)" output="screen" />
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen">
+            <remap from="joint_states" to="robot/joint_states" />
+    </node> -->
+
+    <node name="jaco_control" pkg="relaxed_ik_ros1" type="jaco_control.py" output="screen" />
+
+</launch>

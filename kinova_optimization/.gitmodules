@@ -1,0 +1,3 @@
+[submodule "kinova_optimization_core"]
+	path = kinova_optimization_core
+	url = git@github.com:yepw/kinova_optimization_core.git

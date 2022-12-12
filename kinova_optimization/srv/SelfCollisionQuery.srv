@@ -1,0 +1,3 @@
+kinova_optimization/JointAngles query_state
+---
+std_msgs/Bool in_collision

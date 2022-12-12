@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+<arg name="robot_ns" default="/robot_0"/>
+    <arg name="rate" default="100"/>
+    <arg name="use_vive" default="false"/>
+    <arg name="use_gazebo" default="false"/>
+   
+
+     <node pkg="relaxed_ik_ros1" type="relaxed_ik_rust.py"  name="relaxed_ik" output="screen">
+        <param name="rate" type="int" value="$(arg rate)" />
+        <remap from="/ee_pose_goals" to="/relaxed_ik/ee_pose_goals" />
+        <remap from="/joint_angle_solutions" to="/relaxed_ik/joint_angle_solutions" />
+    </node>
+</launch>
